@@ -18,12 +18,18 @@ public class Game : MonoBehaviour
         pos = boardGO.transform.position;
 
         // Creating separator lines
-        for (int i = 0; i < 2; i++)
+        // Horizontal
+        for (int i = 1; i <= 2; i++)
         {
-            for (int j = 0; j < 2; j++)
-            {
-                // float
-            }
+            GameObject lineGO = Instantiate<GameObject>(linePrefab);
+            lineGO.transform.position = new Vector3(0, width*(i/3f) - width/2f, 0.5f);
+        }
+        // Vertical
+        for (int i = 1; i <= 2; i++)
+        {
+            GameObject lineGO = Instantiate<GameObject>(linePrefab);
+            lineGO.transform.position = new Vector3(height * (i / 3f) - height / 2f, 0, 0.5f);
+            lineGO.transform.Rotate(new Vector3(0, 0, 90));
         }
     }
 
@@ -31,5 +37,10 @@ public class Game : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void GetSquareCoordinatesForClick()
+    {
+        // TODO
     }
 }
